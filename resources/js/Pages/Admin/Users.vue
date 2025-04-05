@@ -10,7 +10,7 @@ import { Head } from '@inertiajs/vue3';
         <v-container class="py-5">
             <v-row>
                 <div class="v-col-12">
-                    This is dashboard
+                    This is Users
                 </div>
             </v-row>
         </v-container>

@@ -15,12 +15,16 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
+    return redirect()->route('admin.dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/dashboard-vuetify', function () {
-    return Inertia::render('DashboardVuetify');
-})->name('dashboard.vuetify');
+Route::get('/admin/dashboard', function () {
+    return Inertia::render('Admin/Dashboard');
+})->middleware(['auth', 'verified'])->name('admin.dashboard');
+
+Route::get('/admin/users', function () {
+    return Inertia::render('Admin/Users');
+})->middleware(['auth', 'verified'])->name('admin.users');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
